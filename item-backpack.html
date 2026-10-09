@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Black backpack | FOUND IT!</title>
+    <meta name="description" content="Calculator and two notebooks inside." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <p class="breadcrumb"><a href="board.html">← Back to the board</a></p>
+
+      <div class="detail-layout">
+        <!-- The item, written on a big index card -->
+        <article class="detail-card">
+          <span class="pin"></span>
+          <p class="stamp stamp-returned">Returned</p>
+          <h1>Black backpack</h1>
+
+          <!-- JavaScript writes the status banner (switch statement) -->
+          <script>
+            writeStatus("returned");
+          </script>
+
+          <p>Black backpack with a scientific calculator and two notebooks inside.</p>
+
+          <!-- A description list: each label (dt) has a value (dd) -->
+          <dl class="detail-list">
+            <dt>Category</dt>
+            <dd>👜 Bags &amp; wallets</dd>
+
+            <dt>Where</dt>
+            <dd>📍 Main library</dd>
+
+            <dt>When</dt>
+            <dd>Mon 5 Oct, morning</dd>
+
+            <dt>Reported by</dt>
+            <dd>library staff</dd>
+
+              <dt>Returned</dt>
+              <dd>Tue 6 Oct</dd>
+          </dl>
+        </article>
+
+        <!-- The guided recovery -->
+        <section class="panel">
+          <h2>Recovered</h2>
+          <!-- JavaScript writes the 3-step progress bar (for loop) -->
+          <script>
+            writeProgress(4);
+          </script>
+
+          <p>
+            This item was returned to its owner on <strong>Tue 6 Oct</strong>.
+            Nothing left to do here.
+          </p>
+          <p><a class="btn btn-secondary" href="board.html">Back to the board</a></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

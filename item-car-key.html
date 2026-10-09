@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toyota car key | FOUND IT!</title>
+    <meta name="description" content="Black key with a red keyring shaped like a football." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <p class="breadcrumb"><a href="board.html">← Back to the board</a></p>
+
+      <div class="detail-layout">
+        <!-- The item, written on a big index card -->
+        <article class="detail-card">
+          <span class="pin"></span>
+          <p class="stamp stamp-lost">Lost</p>
+          <h1>Toyota car key</h1>
+
+          <!-- JavaScript writes the status banner (switch statement) -->
+          <script>
+            writeStatus("lost");
+          </script>
+
+          <p>Black car key with a red keyring shaped like a football. Probably dropped near the study tables on the first floor.</p>
+
+          <!-- A description list: each label (dt) has a value (dd) -->
+          <dl class="detail-list">
+            <dt>Category</dt>
+            <dd>🔑 Keys</dd>
+
+            <dt>Where</dt>
+            <dd>📍 Main library</dd>
+
+            <dt>When</dt>
+            <dd>Thu 8 Oct, around 4 pm</dd>
+
+            <dt>Reported by</dt>
+            <dd>a Level 300 student</dd>
+          </dl>
+        </article>
+
+        <!-- The guided recovery -->
+        <section class="panel">
+          <h2>Help it get home</h2>
+          <!-- JavaScript writes the 3-step progress bar (for loop) -->
+          <script>
+            writeProgress(1);
+          </script>
+
+          <!-- A finder tells the owner. Every rule is checked by the browser (Lesson 5). -->
+          <form action="match.html" method="get">
+            <fieldset>
+              <legend>Have you found it?</legend>
+              <p class="hint">The owner gets your message and your number.</p>
+
+              <label class="field-label" for="found-where">Where did you find it?</label>
+              <select class="field" id="found-where" name="found-where" required>
+                <option value="">Choose a place</option>
+                <option value="library">Main library</option>
+                <option value="cafeteria">Cafeteria</option>
+                <option value="halls">Lecture halls</option>
+                <option value="hostels">Hostels</option>
+                <option value="other">Somewhere else on campus</option>
+              </select>
+
+              <label class="field-label" for="phone">Your phone number</label>
+              <input class="field" type="tel" id="phone" name="phone" required pattern="0[0-9]{9}" />
+              <p class="hint">10 digits starting with 0, for example 0241234567.</p>
+
+              <!-- A group of radio buttons gets its own fieldset and legend -->
+              <fieldset>
+                <legend>What will you do with it?</legend>
+                <label class="choice">
+                  <input type="radio" name="handover" value="security" required />
+                  <span>Hand it in at the security desk</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="handover" value="meet" />
+                  <span>Keep it safe and meet the owner there</span>
+                </label>
+              </fieldset>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit">Tell the owner</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

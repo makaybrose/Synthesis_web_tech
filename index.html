@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOUND IT! | The campus lost-and-found board</title>
+    <meta name="description" content="Lost something on campus? Found something that isn't yours? Post it on the board and get it home." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===== HERO ===== -->
+      <section class="hero">
+        <div>
+          <h1 class="hero-title">FOUND IT!</h1>
+          <p class="tagline">The campus lost-and-found board.</p>
+          <p class="page-intro">
+            Lost your keys between lectures? Picked up an ID card that isn't
+            yours? Post it here, check the board, and get things back where
+            they belong.
+          </p>
+          <p>
+            <a class="btn btn-primary" href="board.html">I lost something</a>
+            <a class="btn btn-secondary" href="report.html">I found something</a>
+          </p>
+        </div>
+
+        <!-- Two notes pinned to a piece of cork. Each one links to a real item page. -->
+        <div class="hero-board">
+          <a class="note note-yellow" href="item-car-key.html">
+            LOST: Toyota car key with a red football keyring. Main library. Please help!
+          </a>
+          <a class="note note-white" href="item-charger.html">
+            FOUND: HP laptop charger, Lecture Hall 3. Is it yours?
+          </a>
+          <a class="note note-yellow" href="item-backpack.html">
+            THANK YOU to whoever handed in my black backpack!
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== STATS: written by JavaScript (writeStats in js/script.js) ===== -->
+      <section>
+        <h2>This semester at a glance</h2>
+        <script>
+          // 14 items reported lost, 11 reported found, 13 returned
+          writeStats(14, 11, 13);
+        </script>
+        <p class="sample-note">Sample numbers for this project.</p>
+      </section>
+
+      <!-- ===== LATEST REPORTS ===== -->
+      <section>
+        <h2>Latest reports</h2>
+        <div class="board">
+          <!-- Classes: category (keys) and place (library), used by the filters -->
+          <article class="card keys library">
+            <span class="pin"></span>
+            <p class="stamp stamp-lost">Lost</p>
+            <h3><a href="item-car-key.html">Toyota car key</a></h3>
+            <p class="card-meta">🔑 Keys · 📍 Main library · Thu 8 Oct</p>
+            <p class="card-text">Black key with a red keyring shaped like a football.</p>
+          </article>
+          <!-- Classes: category (tech) and place (halls), used by the filters -->
+          <article class="card tech halls">
+            <span class="pin"></span>
+            <p class="stamp stamp-found">Found</p>
+            <h3><a href="item-charger.html">HP laptop charger</a></h3>
+            <p class="card-meta">💻 Electronics · 📍 Lecture halls · Thu 8 Oct</p>
+            <p class="card-text">Black 65W charger with a round blue tip.</p>
+          </article>
+          <!-- Classes: category (ids) and place (cafeteria), used by the filters -->
+          <article class="card ids cafeteria">
+            <span class="pin"></span>
+            <p class="stamp stamp-found">Found</p>
+            <h3><a href="item-student-id.html">Student ID card</a></h3>
+            <p class="card-meta">🪪 ID cards · 📍 Cafeteria · Wed 7 Oct</p>
+            <p class="card-text">Blue lanyard attached. Name hidden for privacy.</p>
+          </article>
+        </div>
+        <p><a class="btn btn-secondary" href="board.html">See every report on the board</a></p>
+      </section>
+
+      <!-- ===== HOW IT WORKS: an ordered list, because it's a sequence ===== -->
+      <section class="panel">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>
+            <strong>Report it.</strong> Lost or found, fill in a short form.
+            It checks your details before it lets you post.
+          </li>
+          <li>
+            <strong>Check the board.</strong> Filter by category, then
+            highlight the place you were.
+          </li>
+          <li>
+            <strong>Get it back.</strong> Prove it's yours, meet at the
+            security desk, and confirm the hand-over.
+          </li>
+        </ol>
+      </section>
+
+      <!-- ===== RECENT RECOVERIES: a data table (Lesson 4) ===== -->
+      <section>
+        <h2>Recent recoveries</h2>
+        <table>
+          <caption>Items that made it home</caption>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Where it was</th>
+              <th scope="col">Reported</th>
+              <th scope="col">Days to get back</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="item-phone.html">Phone in a green case</a></th>
+              <td>Cafeteria</td>
+              <td>Sat 3 Oct</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="item-backpack.html">Black backpack</a></th>
+              <td>Main library</td>
+              <td>Mon 5 Oct</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th scope="row">Scientific calculator</th>
+              <td>Lecture halls</td>
+              <td>Mon 28 Sep</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <th scope="row">Hostel room key</th>
+              <td>Hostels</td>
+              <td>Wed 30 Sep</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Average days to get an item back</th>
+              <td>
+                <script>
+                  // The brackets matter (Lesson 9, precedence).
+                  // Without them, only the 3 would be divided by 4.
+                  document.write(parseInt((2 + 1 + 6 + 3) / 4));
+                </script>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

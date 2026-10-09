@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Returned! | FOUND IT!</title>
+    <meta name="description" content="Another item made it home." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <script>
+        writeProgress(4);
+      </script>
+
+      <section class="big-message">
+        <p class="stamp stamp-returned stamp-big">Returned</p>
+        <h1 class="page-title">Another item made it home</h1>
+        <p>
+          The hand-over is confirmed. In a real launch, the item would be
+          stamped RETURNED on the board and added to the recovery numbers on
+          the home page.
+        </p>
+        <p>
+          <!-- mailto: opens the user's email app with the subject and message
+               filled in. %20 is a space and %0A is a new line (Lesson 4). -->
+          <a class="btn btn-primary"
+             href="mailto:?subject=Thank%20you%20for%20returning%20my%20item&amp;body=Hi%2C%0A%0AThank%20you%20for%20handing%20in%20my%20item.%20It%20really%20made%20my%20day.%0A%0A(Sent%20via%20FOUND%20IT!)">
+            Send the finder a thank-you
+          </a>
+          <a class="btn btn-secondary" href="board.html">Back to the board</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

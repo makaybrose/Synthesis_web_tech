@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HP laptop charger | FOUND IT!</title>
+    <meta name="description" content="Black 65W charger with a round blue tip." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <p class="breadcrumb"><a href="board.html">← Back to the board</a></p>
+
+      <div class="detail-layout">
+        <!-- The item, written on a big index card -->
+        <article class="detail-card">
+          <span class="pin"></span>
+          <p class="stamp stamp-found">Found</p>
+          <h1>HP laptop charger</h1>
+
+          <!-- JavaScript writes the status banner (switch statement) -->
+          <script>
+            writeStatus("found");
+          </script>
+
+          <p>Black 65W charger with a round blue tip, left plugged in at the back of Lecture Hall 3.</p>
+
+          <!-- A description list: each label (dt) has a value (dd) -->
+          <dl class="detail-list">
+            <dt>Category</dt>
+            <dd>💻 Electronics</dd>
+
+            <dt>Where</dt>
+            <dd>📍 Lecture halls</dd>
+
+            <dt>When</dt>
+            <dd>Thu 8 Oct, after the 10 am lecture</dd>
+
+            <dt>Reported by</dt>
+            <dd>a Level 100 student</dd>
+          </dl>
+        </article>
+
+        <!-- The guided recovery -->
+        <section class="panel">
+          <h2>Get it back</h2>
+          <!-- JavaScript writes the 3-step progress bar (for loop) -->
+          <script>
+            writeProgress(1);
+          </script>
+
+          <!-- The owner proves the item is theirs. Every rule is checked by the browser (Lesson 5). -->
+          <form action="match.html" method="get">
+            <fieldset>
+              <legend>Is this yours? Prove it</legend>
+              <p class="hint">The finder checks your answers before handing it over.</p>
+
+              <label class="field-label" for="student-id">Student ID number</label>
+              <input class="field" type="text" id="student-id" name="student-id" required pattern="[0-9]{8}" />
+              <p class="hint">Exactly 8 digits, for example 10234567.</p>
+
+              <label class="field-label" for="email">Student email</label>
+              <input class="field" type="email" id="email" name="email" required pattern=".+@.+\.edu\.gh" />
+              <p class="hint">Your school address, ending in .edu.gh.</p>
+
+              <label class="field-label" for="proof">Describe something only the owner would know</label>
+              <textarea class="field" id="proof" name="proof" rows="4" required minlength="15" maxlength="300"></textarea>
+              <p class="hint">At least 15 characters. For example: a sticker, a scratch, or what's inside.</p>
+
+              <label class="field-label" for="pickup">Where would you like to collect it?</label>
+              <select class="field" id="pickup" name="pickup" required>
+                <!-- value="" makes this option count as "nothing chosen yet" -->
+                <option value="">Choose a place</option>
+                <option value="security">Security desk, main gate</option>
+                <option value="library">Library front desk</option>
+              </select>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit">Send my claim</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

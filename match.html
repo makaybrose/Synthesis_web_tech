@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meet at the security desk | FOUND IT!</title>
+    <meta name="description" content="Step 2: meet and hand over the item." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">Message sent. Now meet up.</h1>
+      <script>
+        writeProgress(2);
+      </script>
+
+      <p class="page-intro">
+        Your form passed every check. In a real launch, the other person would
+        get your message now. <strong>Honest note:</strong> in this project
+        nothing is actually sent, because there's no server.
+      </p>
+
+      <div class="detail-layout">
+        <section class="panel">
+          <h2>Where to meet</h2>
+          <dl class="detail-list">
+            <dt>Place</dt>
+            <dd>Security desk, main gate</dd>
+            <dt>Open</dt>
+            <dd>Monday to Saturday, 8 am to 6 pm</dd>
+            <dt>Bring</dt>
+            <dd>Your student ID card</dd>
+          </dl>
+        </section>
+
+        <!-- Step 3: both people confirm the hand-over before it's marked as returned -->
+        <form action="recovered.html" method="get">
+          <fieldset>
+            <legend>Confirm the hand-over</legend>
+            <p class="hint">Tick all three together, at the desk.</p>
+            <label class="choice">
+              <input type="checkbox" name="id-checked" value="yes" required />
+              <span>The owner showed their student ID</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="described" value="yes" required />
+              <span>The owner described the item correctly</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" name="handed" value="yes" required />
+              <span>The item is back in the owner's hands</span>
+            </label>
+          </fieldset>
+          <button class="btn btn-primary" type="submit">Mark as returned</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

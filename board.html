@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The board | FOUND IT!</title>
+    <meta name="description" content="Every lost and found item on campus. Filter by category and place." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">The board</h1>
+      <p class="page-intro">
+        Every item that's been reported, newest first. Pick a category to show
+        only those items, then highlight a place to fade out the rest.
+      </p>
+
+      <!--
+        HOW THE FILTERS WORK (no JavaScript):
+        The radio buttons come BEFORE the board in the HTML, and each
+        label comes straight after its radio. The CSS (sections 11 and 12
+        of style.css) uses ":checked" and "+" to step from the chosen
+        radio to the board, then hides or fades the cards.
+        The category radios are siblings of .loc-area.
+        The location radios are siblings of .board.
+        So don't put anything else between them, or the chain breaks.
+      -->
+      <section class="board-area">
+        <p class="filter-title">Category</p>
+        <input class="filter-radio" type="radio" name="category" id="cat-all" checked />
+        <label for="cat-all">All</label>
+        <input class="filter-radio" type="radio" name="category" id="cat-keys" />
+        <label for="cat-keys">🔑 Keys</label>
+        <input class="filter-radio" type="radio" name="category" id="cat-ids" />
+        <label for="cat-ids">🪪 ID cards</label>
+        <input class="filter-radio" type="radio" name="category" id="cat-tech" />
+        <label for="cat-tech">💻 Electronics</label>
+        <input class="filter-radio" type="radio" name="category" id="cat-bags" />
+        <label for="cat-bags">👜 Bags &amp; wallets</label>
+
+        <div class="loc-area">
+          <p class="filter-title">Highlight a place</p>
+          <input class="filter-radio" type="radio" name="place" id="loc-all" checked />
+          <label for="loc-all">Everywhere</label>
+          <input class="filter-radio" type="radio" name="place" id="loc-library" />
+          <label for="loc-library">Main library</label>
+          <input class="filter-radio" type="radio" name="place" id="loc-cafeteria" />
+          <label for="loc-cafeteria">Cafeteria</label>
+          <input class="filter-radio" type="radio" name="place" id="loc-halls" />
+          <label for="loc-halls">Lecture halls</label>
+          <input class="filter-radio" type="radio" name="place" id="loc-hostels" />
+          <label for="loc-hostels">Hostels</label>
+
+          <div class="board">
+            <!-- Classes: category (keys) and place (library), used by the filters -->
+            <article class="card keys library">
+              <span class="pin"></span>
+              <p class="stamp stamp-lost">Lost</p>
+              <h3><a href="item-car-key.html">Toyota car key</a></h3>
+              <p class="card-meta">🔑 Keys · 📍 Main library · Thu 8 Oct</p>
+              <p class="card-text">Black key with a red keyring shaped like a football.</p>
+            </article>
+            <!-- Classes: category (tech) and place (halls), used by the filters -->
+            <article class="card tech halls">
+              <span class="pin"></span>
+              <p class="stamp stamp-found">Found</p>
+              <h3><a href="item-charger.html">HP laptop charger</a></h3>
+              <p class="card-meta">💻 Electronics · 📍 Lecture halls · Thu 8 Oct</p>
+              <p class="card-text">Black 65W charger with a round blue tip.</p>
+            </article>
+            <!-- Classes: category (ids) and place (cafeteria), used by the filters -->
+            <article class="card ids cafeteria">
+              <span class="pin"></span>
+              <p class="stamp stamp-found">Found</p>
+              <h3><a href="item-student-id.html">Student ID card</a></h3>
+              <p class="card-meta">🪪 ID cards · 📍 Cafeteria · Wed 7 Oct</p>
+              <p class="card-text">Blue lanyard attached. Name hidden for privacy.</p>
+            </article>
+            <!-- Classes: category (bags) and place (hostels), used by the filters -->
+            <article class="card bags hostels">
+              <span class="pin"></span>
+              <p class="stamp stamp-lost">Lost</p>
+              <h3><a href="item-wallet.html">Brown leather wallet</a></h3>
+              <p class="card-meta">👜 Bags &amp; wallets · 📍 Hostels · Tue 6 Oct</p>
+              <p class="card-text">Small, worn at the corners. Bus ticket inside.</p>
+            </article>
+            <!-- Classes: category (bags) and place (library), used by the filters -->
+            <article class="card bags library">
+              <span class="pin"></span>
+              <p class="stamp stamp-returned">Returned</p>
+              <h3><a href="item-backpack.html">Black backpack</a></h3>
+              <p class="card-meta">👜 Bags &amp; wallets · 📍 Main library · Mon 5 Oct</p>
+              <p class="card-text">Calculator and two notebooks inside.</p>
+            </article>
+            <!-- Classes: category (tech) and place (cafeteria), used by the filters -->
+            <article class="card tech cafeteria">
+              <span class="pin"></span>
+              <p class="stamp stamp-returned">Returned</p>
+              <h3><a href="item-phone.html">Phone in a green case</a></h3>
+              <p class="card-meta">💻 Electronics · 📍 Cafeteria · Sat 3 Oct</p>
+              <p class="card-text">Green rubber case, cracked screen corner.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Can't see your item?</h2>
+        <p>
+          It may not have been handed in yet. Post a report so finders know
+          what to look out for.
+        </p>
+        <p><a class="btn btn-primary" href="report.html">Report a lost item</a></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>

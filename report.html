@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-GH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Report an item | FOUND IT!</title>
+    <meta name="description" content="Report something you lost or found on campus." />
+    <meta name="author" content="Hecson" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- No "defer" here on purpose: the page calls these functions while it loads -->
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">FOUND IT!</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="board.html">Board</a></li>
+          <li><a href="report.html">Report an item</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">Report an item</h1>
+      <p class="page-intro">
+        Takes about a minute. Every box turns green when it's filled in
+        correctly. The form won't post until everything is right.
+      </p>
+
+      <!--
+        action: the page the form goes to when it's submitted.
+        method="get": the answers are added to the address bar.
+        All the checking is done by HTML attributes, with no JavaScript:
+        required, minlength, maxlength, pattern, min and max (Lesson 5).
+      -->
+      <form action="report-sent.html" method="get">
+        <fieldset>
+          <legend>1. What happened?</legend>
+          <label class="choice">
+            <input type="radio" name="type" value="lost" required />
+            <span>I lost something</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="type" value="found" />
+            <span>I found something</span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. The item</legend>
+
+          <label class="field-label" for="item-name">What is it?</label>
+          <input class="field" type="text" id="item-name" name="item-name" required minlength="3" maxlength="40" />
+          <p class="hint">Short and clear, for example "Blue umbrella" (3 to 40 characters).</p>
+
+          <label class="field-label" for="category">Category</label>
+          <select class="field" id="category" name="category" required>
+            <option value="">Choose a category</option>
+            <option value="keys">Keys</option>
+            <option value="ids">ID cards</option>
+            <option value="tech">Electronics</option>
+            <option value="bags">Bags and wallets</option>
+            <option value="other">Something else</option>
+          </select>
+
+          <label class="field-label" for="description">Describe it</label>
+          <textarea class="field" id="description" name="description" rows="4" required minlength="10" maxlength="300"></textarea>
+          <p class="hint">Colour, brand, stickers, anything that helps (10 to 300 characters).</p>
+
+          <label class="field-label" for="photo">Photo (optional)</label>
+          <input class="field optional" type="file" id="photo" name="photo" accept="image/*" />
+          <p class="hint">Images only. In this project the photo isn't uploaded anywhere.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Where and when</legend>
+
+          <label class="field-label" for="location">Where?</label>
+          <select class="field" id="location" name="location" required>
+            <option value="">Choose a place</option>
+            <option value="library">Main library</option>
+            <option value="cafeteria">Cafeteria</option>
+            <option value="halls">Lecture halls</option>
+            <option value="hostels">Hostels</option>
+            <option value="other">Somewhere else on campus</option>
+          </select>
+
+          <label class="field-label" for="date">When?</label>
+          <input class="field" type="date" id="date" name="date" required min="2026-08-01" max="2026-12-31" />
+          <p class="hint">A date this semester (August to December 2026).</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. How can people reach you?</legend>
+
+          <label class="field-label" for="email">Student email</label>
+          <input class="field" type="email" id="email" name="email" required pattern=".+@.+\.edu\.gh" />
+          <p class="hint">Your school address, ending in .edu.gh.</p>
+
+          <label class="field-label" for="phone">Phone number (optional)</label>
+          <input class="field optional" type="tel" id="phone" name="phone" pattern="0[0-9]{9}" />
+          <p class="hint">10 digits starting with 0. Leave it empty if you prefer email.</p>
+
+          <label class="choice">
+            <input type="checkbox" name="honest" value="yes" required />
+            <span>This report is true. If I found the item, I'll hand it to the security desk or to its owner.</span>
+          </label>
+        </fieldset>
+
+        <button class="btn btn-primary" type="submit">Post my report</button>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <p>FOUND IT! is a Web Technologies project by Hecson.</p>
+      <p>
+        The items on the board are sample data. Nothing is saved and nothing
+        is sent: there are no accounts and no database.
+      </p>
+    </footer>
+  </body>
+</html>
