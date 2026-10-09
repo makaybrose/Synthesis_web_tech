@@ -1,0 +1,811 @@
+/* ==========================================================
+   FOUND IT! The campus lost-and-found board
+   Main stylesheet, shared by every page.
+
+   The look: a campus noticeboard. Cork board, pinned index
+   cards and rubber stamps.
+
+   Colours:
+     Ink navy       #1d2b4f   headings, header, buttons
+     Paper          #f4f1ea   page background
+     Index card     #fffef8   cards and panels
+     Cork           #c69c6d   the board
+     Wood           #7a5230   board frame
+     Lost red       #c62828
+     Found green    #2e7d32
+     Returned purple #5e35b1
+     Note yellow    #ffd54a   highlights
+     Text           #222222
+
+   Fonts:
+     Archivo Black  headings (bold poster lettering)
+     Kalam          handwriting on the index cards
+     Work Sans      normal reading text
+     Courier Prime  stamps and small labels
+   ========================================================== */
+
+
+/* ---------- 1. Box model (Lesson 7) ----------
+   Width includes padding and border everywhere. */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+/* ---------- 2. Whole page ---------- */
+body {
+  margin: 0;
+  background-color: #f4f1ea;
+  color: #222222;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-weight: 400;
+  color: #1d2b4f;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: #1d2b4f;
+}
+
+/* Keyboard users must see where they are (Lesson 4 tip) */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #ffd54a;
+}
+
+
+/* ---------- 3. Header and navigation ---------- */
+/* On phones the logo sits on its own line with the menu below it.
+   From 40em wide (section 20) they sit side by side. */
+.site-header {
+  padding: 1rem;
+  background-color: #1d2b4f;
+}
+
+.logo {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 1.4rem;
+  color: #ffd54a;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 1.25rem;
+}
+
+.nav-list a {
+  color: #fffef8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  color: #ffd54a;
+  text-decoration: underline;
+}
+
+
+/* ---------- 4. Main content area ---------- */
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: calc(1.8rem + 2vw);
+  margin: 0 0 0.5rem;
+}
+
+.page-intro {
+  max-width: 42rem;
+  font-size: 1.15rem;
+}
+
+.hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+.sample-note {
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+
+/* ---------- 5. Buttons ----------
+   Links are inline, so inline-block makes padding push other
+   elements away properly (Lesson 7). */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  margin: 0 0.6rem 0.8rem 0;
+  border: 3px solid #1d2b4f;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #1d2b4f;
+  color: #fffef8;
+}
+
+.btn-primary:hover {
+  background-color: #c62828;
+  border-color: #c62828;
+}
+
+.btn-secondary {
+  background-color: #fffef8;
+  color: #1d2b4f;
+}
+
+.btn-secondary:hover {
+  background-color: #ffd54a;
+}
+
+
+/* ---------- 6. Home page hero ---------- */
+.hero-title {
+  font-size: calc(2.6rem + 4vw);
+  margin: 0;
+  color: #c62828;
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1d2b4f;
+}
+
+/* A small piece of cork board with two notes pinned to it */
+.hero-board {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: #c69c6d;
+  border: 12px solid #7a5230;
+  border-radius: 6px;
+}
+
+.note {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  font-family: "Kalam", "Comic Sans MS", cursive;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: #222222;
+}
+
+.note-yellow {
+  background-color: #ffd54a;
+  transform: rotate(-3deg);
+}
+
+.note-white {
+  background-color: #fffef8;
+  transform: rotate(2deg);
+}
+
+
+/* ---------- 7. Stat tiles (written by JavaScript) ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.stat {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fffef8;
+  border: 2px solid #1d2b4f;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-number {
+  margin: 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 2.2rem;
+  color: #1d2b4f;
+}
+
+.stat-label {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.stat-message {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+
+/* ---------- 8. The cork board and the index cards ---------- */
+.board {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #c69c6d;
+  border: 14px solid #7a5230;
+  border-radius: 6px;
+}
+
+.card {
+  margin-bottom: 1.5rem;
+  padding: 0 1rem 1rem;
+  background-color: #fffef8;
+  border-top: 6px solid #9fb6d9;
+  border-radius: 2px;
+}
+
+/* Tilt the cards slightly, alternating left and right, so they
+   look pinned by hand. nth-of-type is from the tables reading. */
+.card:nth-of-type(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.card:nth-of-type(even) {
+  transform: rotate(1.2deg);
+}
+
+/* The push pin: a small circle. A negative top margin pulls
+   it up over the edge of the card (Lesson 7: margins can be negative). */
+.pin {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: -9px auto 0.5rem;
+  background-color: #c62828;
+  border: 3px solid #7f1d1d;
+  border-radius: 50%;
+}
+
+.card h3 {
+  margin: 0.25rem 0;
+  font-family: "Kalam", "Comic Sans MS", cursive;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.card h3 a {
+  color: #1d2b4f;
+}
+
+.card h3 a:hover {
+  color: #c62828;
+}
+
+.card-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+.card-text {
+  margin: 0.5rem 0 0;
+}
+
+
+/* ---------- 9. Rubber stamps: LOST, FOUND, RETURNED ---------- */
+.stamp {
+  display: inline-block;
+  margin: 0;
+  padding: 0.1rem 0.6rem;
+  border: 3px solid;
+  border-radius: 4px;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: rotate(-5deg);
+}
+
+/* Each stamp only sets a colour. The border uses the text colour
+   because "border: 3px solid" above gives no colour of its own. */
+.stamp-lost {
+  color: #c62828;
+}
+
+.stamp-found {
+  color: #2e7d32;
+}
+
+.stamp-returned {
+  color: #5e35b1;
+}
+
+.stamp-big {
+  font-size: 2.2rem;
+  padding: 0.2rem 1rem;
+  border-width: 6px;
+}
+
+
+/* ---------- 10. Board filters ----------
+   The radio buttons stay visible so they work with a keyboard.
+   Each label comes straight after its radio, so
+   ".filter-radio:checked + label" styles the chosen one. */
+.filter-title {
+  margin: 1rem 0 0.25rem;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.filter-radio {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0 0.15rem 0.5rem 0;
+}
+
+.filter-radio + label {
+  display: inline-block;
+  margin: 0 0.75rem 0.5rem 0;
+  padding: 0.3rem 0.8rem;
+  background-color: #fffef8;
+  border: 2px solid #1d2b4f;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-radio + label:hover {
+  background-color: #ffd54a;
+}
+
+.filter-radio:checked + label {
+  background-color: #1d2b4f;
+  color: #fffef8;
+}
+
+.board-area .board {
+  margin-top: 1rem;
+}
+
+
+/* ---------- 11. CATEGORY FILTER: hides cards that don't match ----------
+   How to read these long selectors:
+   "When #cat-keys is checked, step over each element that comes
+   after it (label, input, label...) until you reach .loc-area,
+   then find the cards inside it."
+   Each + steps to the very next sibling (Lesson 6).
+
+   Rule 1 hides every card. Rule 2 shows the matching ones again.
+   Both rules are equally specific, so the one written LAST wins.
+   That's why the "show" rule must come after the "hide" rule. */
+
+/* Keys: 7 siblings between #cat-keys and .loc-area */
+#cat-keys:checked + label + input + label + input + label + input + label + .loc-area .card {
+  display: none;
+}
+#cat-keys:checked + label + input + label + input + label + input + label + .loc-area .keys {
+  display: block;
+}
+
+/* ID cards: 5 siblings */
+#cat-ids:checked + label + input + label + input + label + .loc-area .card {
+  display: none;
+}
+#cat-ids:checked + label + input + label + input + label + .loc-area .ids {
+  display: block;
+}
+
+/* Electronics: 3 siblings */
+#cat-tech:checked + label + input + label + .loc-area .card {
+  display: none;
+}
+#cat-tech:checked + label + input + label + .loc-area .tech {
+  display: block;
+}
+
+/* Bags and wallets: 1 sibling (its own label) */
+#cat-bags:checked + label + .loc-area .card {
+  display: none;
+}
+#cat-bags:checked + label + .loc-area .bags {
+  display: block;
+}
+
+
+/* ---------- 12. LOCATION FILTER: fades out cards from other places ----------
+   Same idea, but it changes opacity instead of display.
+   Because the two filters change DIFFERENT properties, they
+   work together: pick "Electronics" and "Cafeteria" and you
+   see only electronics, with the cafeteria ones in full colour. */
+#loc-library:checked + label + input + label + input + label + input + label + .board .card {
+  opacity: 0.25;
+}
+#loc-library:checked + label + input + label + input + label + input + label + .board .library {
+  opacity: 1;
+}
+
+#loc-cafeteria:checked + label + input + label + input + label + .board .card {
+  opacity: 0.25;
+}
+#loc-cafeteria:checked + label + input + label + input + label + .board .cafeteria {
+  opacity: 1;
+}
+
+#loc-halls:checked + label + input + label + .board .card {
+  opacity: 0.25;
+}
+#loc-halls:checked + label + input + label + .board .halls {
+  opacity: 1;
+}
+
+#loc-hostels:checked + label + .board .card {
+  opacity: 0.25;
+}
+#loc-hostels:checked + label + .board .hostels {
+  opacity: 1;
+}
+
+
+/* ---------- 13. Panels and the "how it works" steps ---------- */
+.panel {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #fffef8;
+  border: 2px solid #1d2b4f;
+  border-radius: 8px;
+}
+
+.steps li {
+  margin-bottom: 0.75rem;
+}
+
+
+/* ---------- 14. Tables (Lesson 4) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fffef8;
+}
+
+caption {
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.6rem;
+  border: 1px solid #c9c2b2;
+  text-align: left;
+}
+
+thead th {
+  background-color: #1d2b4f;
+  color: #fffef8;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f4f1ea;
+}
+
+tfoot td,
+tfoot th {
+  font-weight: 700;
+  background-color: #ffd54a;
+}
+
+
+/* ---------- 15. Item detail pages ---------- */
+.breadcrumb {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+/* A big index card for the item's details */
+.detail-card {
+  margin-bottom: 1.5rem;
+  padding: 0 1.5rem 1.5rem;
+  background-color: #fffef8;
+  border-top: 8px solid #9fb6d9;
+  border-left: 1px solid #c9c2b2;
+  border-right: 1px solid #c9c2b2;
+  border-bottom: 1px solid #c9c2b2;
+}
+
+.detail-card h1 {
+  font-family: "Kalam", "Comic Sans MS", cursive;
+  font-weight: 700;
+  font-size: calc(1.8rem + 1.5vw);
+  margin: 0.5rem 0;
+}
+
+.detail-list dt {
+  margin-top: 0.75rem;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+.detail-list dd {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* The status banner, written by JavaScript (writeStatus) */
+.status {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 8px solid;
+  font-weight: 700;
+}
+
+.status-lost {
+  background-color: #fde8e8;
+  color: #8e1c1c;
+}
+
+.status-found {
+  background-color: #e3f2e4;
+  color: #1e5a22;
+}
+
+.status-returned {
+  background-color: #ede7f6;
+  color: #45278a;
+}
+
+.status-unknown {
+  background-color: #eeeeee;
+  color: #333333;
+}
+
+
+/* ---------- 16. Recovery progress (written by JavaScript) ---------- */
+.progress {
+  display: flex;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.progress li {
+  flex: 1;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-top: 6px solid #c9c2b2;
+  color: #555555;
+}
+
+.progress .done {
+  border-top-color: #2e7d32;
+  color: #1e5a22;
+}
+
+.progress .current {
+  border-top-color: #ffd54a;
+  color: #1d2b4f;
+  font-weight: 700;
+}
+
+
+/* ---------- 17. Forms (Lesson 5) ---------- */
+fieldset {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background-color: #fffef8;
+  border: 2px solid #1d2b4f;
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 1.15rem;
+  color: #1d2b4f;
+}
+
+.field-label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #9a927f;
+  border-left-width: 8px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #ffffff;
+}
+
+/* Live feedback while typing (Lesson 5, :valid).
+   A field turns green once its value passes every rule. */
+.field:valid {
+  border-color: #2e7d32;
+}
+
+/* Radio and checkbox choices, one per line */
+.choice {
+  display: block;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.choice input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.4rem;
+}
+
+/* The ticked choice turns bold and green (:checked + span) */
+.choice input:checked + span {
+  font-weight: 700;
+  color: #1e5a22;
+}
+
+
+/* ---------- 18. Success and confirmation pages ---------- */
+.big-message {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.big-message p {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ---------- 19. Footer ---------- */
+.site-footer {
+  padding: 1.5rem 1rem;
+  background-color: #1d2b4f;
+  color: #fffef8;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer p {
+  max-width: 50rem;
+  margin: 0.4rem auto;
+}
+
+
+/* ---------- 20. Medium screens and up (mobile first, Lesson 7) ---------- */
+@media (width >= 40em) {
+  /* Header in one row. flex: 1 lets the logo take the spare
+     space, which pushes the menu to the right. */
+  .site-header {
+    display: flex;
+  }
+
+  .logo {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .nav-list li {
+    margin-right: 0;
+    margin-left: 1.25rem;
+  }
+
+  .board {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .panel {
+    padding: 1.5rem;
+  }
+}
+
+
+/* ---------- 21. Large screens ---------- */
+@media (width >= 64em) {
+  .board {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* Home hero: text left, cork board right */
+  .hero {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 3rem;
+  }
+
+  .hero-board {
+    margin-top: 0;
+  }
+
+  /* Detail pages: item card left, recovery panel right */
+  .detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+
+/* ---------- 22. Small additions ---------- */
+
+/* Pinned notes on the home page are links to real items */
+a.note {
+  display: block;
+  text-decoration: none;
+}
+
+a.note:hover {
+  text-decoration: underline;
+}
+
+/* A group of radio buttons inside a form gets its own small
+   fieldset (Lesson 5: label the group with a legend). */
+fieldset fieldset {
+  margin: 1rem 0 0;
+  padding: 0;
+  border: none;
+}
+
+fieldset fieldset legend {
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+/* Optional fields are valid even when empty, so they shouldn't
+   turn green. This rule comes after .field:valid and is just as
+   specific, so it wins. */
+.optional:valid {
+  border-color: #9a927f;
+}
